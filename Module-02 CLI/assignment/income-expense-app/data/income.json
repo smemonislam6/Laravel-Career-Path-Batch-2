@@ -13,5 +13,10 @@
         "amount": 5000,
         "category": "emon",
         "date": "2024-06-29 13:34:29"
+    },
+    {
+        "amount": 100,
+        "category": "abc",
+        "date": "2024-06-30 17:53:31"
     }
 ]

@@ -1,27 +1,13 @@
-<?php 
-require_once 'app/Helpers/FileHelper.php';
-require_once 'app/Models/Income.php';
-require_once 'app/Models/Expense.php';
-require_once 'app/Models/Category.php';
-require_once 'app/Models/Savings.php';
-require_once 'app/Views/IncomeView.php';
-require_once 'app/Views/ExpenseView.php';
-require_once 'app/Views/CategoryView.php';
-require_once 'app/Views/SavingsView.php';
-require_once 'app/Controllers/IncomeController.php';
-require_once 'app/Controllers/ExpenseController.php';
-require_once 'app/Controllers/CategoryController.php';
-require_once 'app/Controllers/SavingsController.php';
+<?php
+
+namespace App\CLI;
 
 use App\Controllers\IncomeController;
 use App\Controllers\ExpenseController;
 use App\Controllers\CategoryController;
 use App\Controllers\SavingsController;
 
-// Initialize controllers
-
-
-class CliApp {
+class CommandLineInterface {
     private const ADD_INCOME = 1;
     private const ADD_EXPENSE = 2;
     private const VIEW_INCOMES = 3;
@@ -30,10 +16,10 @@ class CliApp {
     private const VIEW_CATEGORIES = 6;
     private const EXIT_APP = 7;
 
-    private  $incomeController;
-    private  $expenseController;
-    private  $categoryController;
-    private  $savingsController;
+    private $incomeController;
+    private $expenseController;
+    private $categoryController;
+    private $savingsController;
     private array $options = [
         self::ADD_INCOME => "Add income",
         self::ADD_EXPENSE => "Add expense",
@@ -44,8 +30,7 @@ class CliApp {
         self::EXIT_APP => "Exit",
     ];
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->incomeController = new IncomeController();
         $this->expenseController = new ExpenseController();
         $this->categoryController = new CategoryController();
@@ -68,7 +53,6 @@ class CliApp {
                     break;
 
                 case self::ADD_EXPENSE:
-
                     $amount = floatval(readline("Enter Your Amount: "));
                     $category = readline("Enter Your Category: ");
                     $this->expenseController->addExpense($amount, $category);
@@ -77,15 +61,19 @@ class CliApp {
                 case self::VIEW_INCOMES:
                     $this->incomeController->viewIncomes();
                     break;
+
                 case self::VIEW_EXPENSES:
                     $this->expenseController->viewExpenses();
                     break;
+
                 case self::VIEW_SAVINGS:
                     $this->savingsController->viewSavings();
                     break;
+
                 case self::VIEW_CATEGORIES:
                     $this->categoryController->viewCategories();
                     break;
+
                 case self::EXIT_APP:
                     return;
                 default:

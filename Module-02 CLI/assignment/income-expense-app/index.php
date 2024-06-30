@@ -1,6 +1,8 @@
 <?php
-require_once 'app/CLI/CommandLineInterface.php';
 
+require_once __DIR__ . '/autoload.php';
 
-$app = new CliApp();
+use App\CLI\CommandLineInterface;
+
+$app = new CommandLineInterface();
 $app->run();
