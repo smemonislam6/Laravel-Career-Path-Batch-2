@@ -2,30 +2,36 @@
 
 namespace App\Models;
 
-use App\Helpers\FileHelper;
+use App\Helpers\StorageInterface;
 
 class Expense {
     private $file = 'data/expense.json';
     private $expenses = [];
+    private $storage;
 
-    public function __construct() {
-        $this->expenses = FileHelper::readFile($this->file);
+    public function __construct(StorageInterface $storage) 
+    {
+        $this->storage = $storage;
+        $this->expenses = $this->storage->read($this->file);
         if ($this->expenses === null) {
             $this->expenses = [];
         }
     }
 
-    public function addExpense($amount, $category) {
+    public function addExpense($amount, $category) 
+    {
         $expense = [
             'amount' => $amount,
             'category' => $category,
             'date' => date('Y-m-d H:i:s')
         ];
         $this->expenses[] = $expense;
-        FileHelper::writeFile($this->file, $this->expenses);
+
+        $this->storage->write($this->file, $this->expenses);
     }
 
-    public function getExpenses() {
+    public function getExpenses()
+    {
         return $this->expenses;
     }
 }

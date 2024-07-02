@@ -9,9 +9,9 @@ class CategoryController {
     private $categoryModel;
     private $categoryView;
 
-    public function __construct() {
-        $this->categoryModel = new Category();
-        $this->categoryView = new CategoryView();
+    public function __construct(Category $categoryModel, CategoryView $categoryView) {
+        $this->categoryModel = $categoryModel;
+        $this->categoryView = $categoryView;
     }
 
     public function addCategory($name) {

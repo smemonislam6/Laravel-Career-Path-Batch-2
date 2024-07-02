@@ -23,5 +23,30 @@
         "amount": 5000,
         "category": "abcdef",
         "date": "2024-07-01 19:37:35"
+    },
+    {
+        "amount": 7000,
+        "category": "xxxx",
+        "date": "2024-07-02 16:03:35"
+    },
+    {
+        "amount": 0,
+        "category": "ac",
+        "date": "2024-07-02 16:10:08"
+    },
+    {
+        "amount": 46464,
+        "category": "a45dfd",
+        "date": "2024-07-02 16:12:26"
+    },
+    {
+        "amount": 1646464,
+        "category": "adf3a54646",
+        "date": "2024-07-02 16:13:14"
+    },
+    {
+        "amount": 5000000,
+        "category": "s",
+        "date": "2024-07-02 18:16:36"
     }
 ]

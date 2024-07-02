@@ -11,10 +11,10 @@ class ExpenseController {
     private $expenseView;
     private $categoryController;
 
-    public function __construct() {
-        $this->expenseModel = new Expense();
-        $this->expenseView = new ExpenseView();
-        $this->categoryController = new CategoryController();
+    public function __construct(Expense $expenseModel, ExpenseView $expenseView, CategoryController $categoryController) {
+        $this->expenseModel = $expenseModel;
+        $this->expenseView = $expenseView;
+        $this->categoryController = $categoryController;
     }
 
     public function addExpense($amount, $category) {

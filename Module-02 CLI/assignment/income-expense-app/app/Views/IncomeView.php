@@ -7,7 +7,7 @@ class IncomeView {
         echo "Income added successfully.\n";
     }
 
-    public function displayIncomes($incomes) {
+    public function displayIncomes(array $incomes) {
         echo "Incomes:\n";
         foreach ($incomes as $income) {
             echo "Amount: {$income['amount']}, Category: {$income['category']}, Date: {$income['date']}\n";

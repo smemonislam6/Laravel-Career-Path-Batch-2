@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
-use App\Helpers\FileHelper;
+use App\Helpers\StorageInterface;
 
 class Income {
     private $file = 'data/income.json';
     private $incomes = [];
-
-    public function __construct() {
-        $this->incomes = FileHelper::readFile($this->file);
+    private $storage;
+    public function __construct(StorageInterface $storage)
+    {
+        $this->storage = $storage;
+        $this->incomes = $this->storage->read($this->file);
         if ($this->incomes === null) {
             $this->incomes = [];
         }
@@ -22,10 +24,11 @@ class Income {
             'date' => date('Y-m-d H:i:s')
         ];
         $this->incomes[] = $income;
-        FileHelper::writeFile($this->file, $this->incomes);
+        $this->storage->write($this->file, $this->incomes);
     }
 
-    public function getIncomes() {
+    public function getIncomes():array 
+    {
         return $this->incomes;
     }
 }

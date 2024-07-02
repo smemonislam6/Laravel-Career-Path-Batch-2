@@ -11,13 +11,15 @@ class IncomeController {
     private $incomeView;
     private $categoryController;
 
-    public function __construct() {
-        $this->incomeModel = new Income();
-        $this->incomeView = new IncomeView();
-        $this->categoryController = new CategoryController();
+    public function __construct(Income $incomeModel, CategoryController $categoryController, IncomeView $incomeView) 
+    {
+        $this->incomeModel = $incomeModel;
+        $this->incomeView = $incomeView;
+        $this->categoryController = $categoryController;
     }
 
-    public function addIncome($amount, $category) {
+    public function addIncome($amount, $category) 
+    {
         // Check if category exists, if not add it
         $this->categoryController->addCategory($category);
         
@@ -26,7 +28,7 @@ class IncomeController {
         $this->incomeView->displayAddIncomeSuccess();
     }
 
-    public function viewIncomes():void 
+    public function viewIncomes(): void 
     {
         $incomes = $this->incomeModel->getIncomes();
         $this->incomeView->displayIncomes($incomes);

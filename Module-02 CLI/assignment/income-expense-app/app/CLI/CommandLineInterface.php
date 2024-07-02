@@ -30,11 +30,16 @@ class CommandLineInterface {
         self::EXIT_APP => "Exit",
     ];
 
-    public function __construct() {
-        $this->incomeController = new IncomeController();
-        $this->expenseController = new ExpenseController();
-        $this->categoryController = new CategoryController();
-        $this->savingsController = new SavingsController();
+    public function __construct(
+        IncomeController $incomeController,
+        ExpenseController $expenseController,
+        CategoryController $categoryController,
+        SavingsController $savingsController
+    ) {
+        $this->incomeController = $incomeController;
+        $this->expenseController = $expenseController;
+        $this->categoryController = $categoryController;
+        $this->savingsController = $savingsController;
     }
 
     public function run(): void {
