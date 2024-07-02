@@ -18,5 +18,10 @@
         "amount": 100,
         "category": "abc",
         "date": "2024-06-30 17:53:31"
+    },
+    {
+        "amount": 5000,
+        "category": "abcdef",
+        "date": "2024-07-01 19:37:35"
     }
 ]
