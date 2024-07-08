@@ -1,0 +1,16 @@
+{
+    "name": "pc12/authentication",
+    "type": "assignement",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "smemonislam6",
+            "email": "smemonislam6@gmail.com"
+        }
+    ],
+    "require": {}
+}
